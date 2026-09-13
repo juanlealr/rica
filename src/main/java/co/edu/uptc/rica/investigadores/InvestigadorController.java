@@ -1,4 +1,4 @@
-package co.edu.uptc.rica;
+package co.edu.uptc.rica.investigadores;
 
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;

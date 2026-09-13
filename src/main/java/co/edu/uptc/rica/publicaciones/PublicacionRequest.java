@@ -1,4 +1,4 @@
-package co.edu.uptc.rica;
+package co.edu.uptc.rica.publicaciones;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

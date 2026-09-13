@@ -1,4 +1,4 @@
-package co.edu.uptc.rica;
+package co.edu.uptc.rica.publicaciones;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 

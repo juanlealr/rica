@@ -1,4 +1,4 @@
-package co.edu.uptc.rica;
+package co.edu.uptc.rica.plataforma;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,8 +12,7 @@ public class StatusController {
     public Map<String, String> status() {
         return Map.of(
                 "proyecto", "RICA",
-                "estado", "operativo"
-        );
+                "estado", "operativo");
     }
 
 }

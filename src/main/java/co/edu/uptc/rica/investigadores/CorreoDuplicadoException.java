@@ -1,9 +1,9 @@
-package co.edu.uptc.rica;
+package co.edu.uptc.rica.investigadores;
 
 public class CorreoDuplicadoException extends RuntimeException {
 
     public CorreoDuplicadoException(String mensaje) {
         super(mensaje);
     }
-    
+
 }

@@ -1,6 +1,8 @@
-package co.edu.uptc.rica;
+package co.edu.uptc.rica.investigadores;
 
 import org.springframework.stereotype.Service;
+
+import co.edu.uptc.rica.compartido.RecursoNoEncontradoException;
 
 import java.util.List;
 

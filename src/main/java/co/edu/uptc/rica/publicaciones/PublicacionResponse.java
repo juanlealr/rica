@@ -1,23 +1,27 @@
-package co.edu.uptc.rica;
-
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+package co.edu.uptc.rica.publicaciones;
 
 import java.util.Map;
 
-@Document(collection = "publicaciones")
-public class Publicacion {
+public class PublicacionResponse {
 
-    @Id
     private String id;
-
     private String investigadorCorreo;
     private String titulo;
     private String tipo;
     private Integer anio;
     private Map<String, String> detalles;
 
-    public Publicacion() {
+    public PublicacionResponse() {
+    }
+
+    public PublicacionResponse(String id, String investigadorCorreo, String titulo, String tipo, Integer anio,
+            Map<String, String> detalles) {
+        this.id = id;
+        this.investigadorCorreo = investigadorCorreo;
+        this.titulo = titulo;
+        this.tipo = tipo;
+        this.anio = anio;
+        this.detalles = detalles;
     }
 
     public String getId() {
@@ -67,5 +71,4 @@ public class Publicacion {
     public void setDetalles(Map<String, String> detalles) {
         this.detalles = detalles;
     }
-
 }
