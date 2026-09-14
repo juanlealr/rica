@@ -12,18 +12,31 @@ public class PublicacionService {
 
     private final PublicacionRepository publicacionRepository;
     private final InvestigadorRepository investigadorRepository;
+    private final LimitePublicacionesAnualesService limitePublicacionesService; // 1. Inyección del servicio
 
     public PublicacionService(PublicacionRepository publicacionRepository,
-            InvestigadorRepository investigadorRepository) {
+            InvestigadorRepository investigadorRepository,
+            LimitePublicacionesAnualesService limitePublicacionesService) { // 2. Agregado al constructor
         this.publicacionRepository = publicacionRepository;
         this.investigadorRepository = investigadorRepository;
+        this.limitePublicacionesService = limitePublicacionesService;
     }
 
     public Publicacion registrar(Publicacion publicacion) {
-        if (!investigadorRepository.existsByCorreoInstitucional(publicacion.getInvestigadorCorreo())) {
+        // Validación 1: Verificar existencia del investigador
+        if (!investigadorRepository.existsByCorreoInstitucional_Valor(publicacion.getInvestigadorCorreo())) {
             throw new RecursoNoEncontradoException(
                     "No existe un investigador con correo " + publicacion.getInvestigadorCorreo());
         }
+
+        // Validación 2: Verificar si cumple la regla de límite de publicaciones
+        if (!limitePublicacionesService.puedeRegistrar(publicacion)) {
+            throw new LimiteAnualExcedidoException(
+                    "El investigador con correo " + publicacion.getInvestigadorCorreo() +
+                            " ha superado el límite de publicaciones permitidas para este año.");
+        }
+
+        // Si pasa ambas validaciones, guardamos la publicación
         return publicacionRepository.save(publicacion);
     }
 
