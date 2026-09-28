@@ -3,7 +3,7 @@ package co.edu.uptc.rica.publicaciones;
 import org.springframework.stereotype.Service;
 
 import co.edu.uptc.rica.compartido.RecursoNoEncontradoException;
-import co.edu.uptc.rica.investigadores.InvestigadorRepository;
+import co.edu.uptc.rica.investigadores.infraestructura.salida.persistencia.InvestigadorRepository;
 
 import java.util.List;
 

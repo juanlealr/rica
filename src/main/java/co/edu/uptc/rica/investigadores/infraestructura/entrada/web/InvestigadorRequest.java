@@ -1,4 +1,4 @@
-package co.edu.uptc.rica.investigadores;
+package co.edu.uptc.rica.investigadores.infraestructura.entrada.web;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
